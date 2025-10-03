@@ -20,12 +20,12 @@ export default function App() {
     <View style={styles.container}>
       <Text>Hello World!</Text>
 
-      <View style={{ flexDirection: 'row', gap: 20 }}>
+      <View style={styles.metricContainer}>
         <Metric label='Steps' value='12345' />
         <Metric label='Distance' value='0.75km' />
+        <Metric label='Flights Climbed' value='12' />
       </View>
 
-      <Metric label='Flights Climbed' value='0.75km' />
       <StatusBar style='auto' />
     </View>
   );
@@ -36,14 +36,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000000ff',
     justifyContent: 'center',
-    padding: 20,
+    padding: 12,
     // borderColor: 'red',
     // borderStyle: 'solid',
     // borderWidth: 2,
   },
+  metricContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 55,
+  },
   metric: {
-    marginRight: 50,
-    marginVertical: 10,
+    // marginVertical: 10,
+    // minWidth: '40%',
   },
   label: {
     color: 'white',
