@@ -14,6 +14,8 @@ const RingProgress = ({
   strokeWidth = 20,
 }: RingProgressProps) => {
   const innerRadius = radius - strokeWidth / 2;
+  const perimeter = 2 * Math.PI * innerRadius;
+  const progress = 0.995; // 0 to 1
   return (
     <View
       style={{
@@ -43,6 +45,7 @@ const RingProgress = ({
           r={innerRadius}
           stroke={color}
           strokeWidth={strokeWidth}
+          strokeDasharray={[perimeter * progress, perimeter]}
           //   fill='blue'
         />
       </Svg>
