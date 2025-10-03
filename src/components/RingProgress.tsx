@@ -15,7 +15,7 @@ const RingProgress = ({
 }: RingProgressProps) => {
   const innerRadius = radius - strokeWidth / 2;
   const perimeter = 2 * Math.PI * innerRadius;
-  const progress = 0.7; // 0 to 1
+  const progress = 0.1; // 0 to 1
   return (
     <View
       style={{
@@ -26,7 +26,7 @@ const RingProgress = ({
       }}
     >
       <Svg>
-        {/* <Circle
+        <Circle
           cx={radius}
           cy={radius}
           r={innerRadius}
@@ -46,28 +46,7 @@ const RingProgress = ({
           strokeWidth={strokeWidth}
           strokeDasharray={[perimeter * progress, perimeter]}
           strokeLinecap='round'
-        /> */}
-        <Circle
-          cx={radius}
-          cy={radius}
-          r={innerRadius}
-          stroke={color}
-          strokeWidth={strokeWidth}
-          strokeLinecap='butt' // 👈 IMPORTANTE
-          strokeDasharray={perimeter} // 👈 Igual que el de progreso
-          strokeDashoffset={1000}
-          opacity={0.4}
-        />
-
-        <Circle
-          cx={radius}
-          cy={radius}
-          r={innerRadius}
-          stroke={color}
-          strokeWidth={strokeWidth}
-          strokeDasharray={perimeter}
-          strokeDashoffset={perimeter * (1 - progress)}
-          strokeLinecap='round'
+          fill='none'
         />
       </Svg>
     </View>
