@@ -15,7 +15,7 @@ const RingProgress = ({
 }: RingProgressProps) => {
   const innerRadius = radius - strokeWidth / 2;
   const perimeter = 2 * Math.PI * innerRadius;
-  const progress = 0.1; // 0 to 1
+  const progress = 0.7; // 0 to 1
   return (
     <View
       style={{
