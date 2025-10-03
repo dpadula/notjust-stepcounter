@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import Metric from './src/components/Metric';
+import RingProgress from './src/components/RingProgress';
 
 export default function App() {
   return (
     <View style={styles.container}>
+      <RingProgress radius={100} />
       <View style={styles.metricContainer}>
         <Metric label='Steps' value='12345' />
         <Metric label='Distance' value='0.75km' />
