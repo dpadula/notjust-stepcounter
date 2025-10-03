@@ -1,14 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Svg, { Circle, Rect } from 'react-native-svg';
+import { StyleSheet, View } from 'react-native';
+import Svg, { Circle } from 'react-native-svg';
 
 type RingProgressProps = {
   radius?: number;
+  strokeWidth?: number;
 };
 
 const color = '#EE0F55';
 
-const RingProgress = ({ radius = 100 }: RingProgressProps) => {
+const RingProgress = ({
+  radius = 100,
+  strokeWidth = 10,
+}: RingProgressProps) => {
   return (
     <View
       style={{
@@ -18,17 +22,18 @@ const RingProgress = ({ radius = 100 }: RingProgressProps) => {
         alignSelf: 'center',
       }}
     >
-      <Text style={{ color: 'white' }}>RingProgress</Text>
-      <Svg height='50%' width='50%' viewBox='0 0 100 100'>
+      <Svg>
         <Circle
-          cx='50'
-          cy='50'
-          r='45'
-          stroke='blue'
-          strokeWidth='2.5'
-          fill='green'
+          //   cx='50'
+          //   cy='50'
+          cx={radius}
+          cy={radius}
+          r={radius}
+          //   stroke={color}
+          //   strokeWidth={strokeWidth}
+          fill='blue'
         />
-        <Rect
+        {/* <Rect
           x='15'
           y='15'
           width='70'
@@ -36,7 +41,7 @@ const RingProgress = ({ radius = 100 }: RingProgressProps) => {
           stroke='red'
           strokeWidth='2'
           fill='yellow'
-        />
+        /> */}
       </Svg>
     </View>
   );
