@@ -11,14 +11,15 @@ const color = '#EE0F55';
 
 const RingProgress = ({
   radius = 100,
-  strokeWidth = 10,
+  strokeWidth = 20,
 }: RingProgressProps) => {
+  const innerRadius = radius - strokeWidth / 2;
   return (
     <View
       style={{
         width: radius * 2,
         height: radius * 2,
-        backgroundColor: color,
+        // backgroundColor: 'yellow',
         alignSelf: 'center',
       }}
     >
@@ -28,10 +29,10 @@ const RingProgress = ({
           //   cy='50'
           cx={radius}
           cy={radius}
-          r={radius}
-          //   stroke={color}
-          //   strokeWidth={strokeWidth}
-          fill='blue'
+          r={innerRadius}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          //   fill='blue'
         />
         {/* <Rect
           x='15'
