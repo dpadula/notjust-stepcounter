@@ -26,14 +26,15 @@ const RingProgress = ({
       }}
     >
       <Svg>
-        <Circle
+        {/* <Circle
           cx={radius}
           cy={radius}
           r={innerRadius}
           stroke={color}
           strokeWidth={strokeWidth}
           //   strokeDasharray={[perimeter * (1 - progress), perimeter]}
-          strokeDashoffset={1 - progress * perimeter}
+          //   strokeDasharray={[perimeter * progress, perimeter]}
+          //   strokeDashoffset={1 - progress * perimeter}
           //   fill='blue'
           opacity={0.4}
         />
@@ -44,6 +45,28 @@ const RingProgress = ({
           stroke={color}
           strokeWidth={strokeWidth}
           strokeDasharray={[perimeter * progress, perimeter]}
+          strokeLinecap='round'
+        /> */}
+        <Circle
+          cx={radius}
+          cy={radius}
+          r={innerRadius}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          strokeLinecap='butt' // 👈 IMPORTANTE
+          strokeDasharray={perimeter} // 👈 Igual que el de progreso
+          strokeDashoffset={1000}
+          opacity={0.4}
+        />
+
+        <Circle
+          cx={radius}
+          cy={radius}
+          r={innerRadius}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          strokeDasharray={perimeter}
+          strokeDashoffset={perimeter * (1 - progress)}
           strokeLinecap='round'
         />
       </Svg>
