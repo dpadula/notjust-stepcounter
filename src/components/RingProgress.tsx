@@ -33,16 +33,18 @@ const RingProgress = ({
           stroke={color}
           strokeWidth={strokeWidth}
           //   fill='blue'
+          opacity={0.2}
         />
-        {/* <Rect
-          x='15'
-          y='15'
-          width='70'
-          height='70'
-          stroke='red'
-          strokeWidth='2'
-          fill='yellow'
-        /> */}
+        <Circle
+          //   cx='50'
+          //   cy='50'
+          cx={radius}
+          cy={radius}
+          r={innerRadius}
+          stroke={color}
+          strokeWidth={strokeWidth}
+          //   fill='blue'
+        />
       </Svg>
     </View>
   );
