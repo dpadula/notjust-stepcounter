@@ -4,10 +4,12 @@ import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Metric from './src/components/Metric';
 import RingProgress from './src/components/RingProgress';
+import useHealthData from './src/hooks/useHealthData';
 
 export default function App() {
   const arrowColor = '#C3FF53';
   const [date, setDate] = useState(new Date());
+  const { steps, flights, distance } = useHealthData(date);
   const changeDate = (numDays: number) => {
     const currentDate = new Date(date); // Create a copy of the current date
     // Update the date by adding/subtracting the number of days
@@ -35,9 +37,9 @@ export default function App() {
       </View>
       <RingProgress radius={100} strokeWidth={40} progress={0.6} />
       <View style={styles.metricContainer}>
-        <Metric label='Steps' value='12345' />
-        <Metric label='Distance' value='0.75km' />
-        <Metric label='Flights Climbed' value='12' />
+        <Metric label='Steps' value={steps.toString()} />
+        <Metric label='Distance' value={`${(distance / 1000).toFixed(2)} km`} />
+        <Metric label='Flights Climbed' value={flights.toString()} />
       </View>
 
       <StatusBar style='auto' />
