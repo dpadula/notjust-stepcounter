@@ -43,6 +43,7 @@ const RingProgress = ({
     strokeWidth: strokeWidth,
     strokeLinecap: 'round',
     fill: 'none',
+    transform: `rotate(${-90}, ${radius}, ${radius})`,
   };
   return (
     <View
@@ -59,11 +60,7 @@ const RingProgress = ({
           strokeWidth={strokeWidth * 0.85}
           strokeOpacity={0.4}
         />
-        <AnimatedCircle
-          animatedProps={animatedProps}
-          {...defaultCircleProps}
-          transform={`rotate(${-90}, ${radius}, ${radius})`}
-        />
+        <AnimatedCircle animatedProps={animatedProps} {...defaultCircleProps} />
       </Svg>
     </View>
   );
