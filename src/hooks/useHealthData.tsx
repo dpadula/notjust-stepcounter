@@ -113,6 +113,7 @@ const useHealthData = (date: Date) => {
     // Steps
     const steps = await readRecords('Steps', { timeRangeFilter });
     const totalSteps = steps.records.reduce((sum, cur) => sum + cur.count, 0);
+    console.log('🚀 ~ readSampleData ~ totalSteps:', totalSteps);
     setSteps(totalSteps);
 
     // Distance
@@ -121,6 +122,7 @@ const useHealthData = (date: Date) => {
       (sum, cur) => sum + cur.distance.inMeters,
       0
     );
+    console.log('🚀 ~ readSampleData ~ totalDistance:', totalDistance);
     setDistance(totalDistance);
 
     // Floors climbed
@@ -131,6 +133,7 @@ const useHealthData = (date: Date) => {
       (sum, cur) => sum + cur.floors,
       0
     );
+    console.log('🚀 ~ readSampleData ~ totalFloors:', totalFloors);
     setFlights(totalFloors);
     // console.log(floorsClimbed);
   };

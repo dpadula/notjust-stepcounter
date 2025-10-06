@@ -10,6 +10,10 @@ export default function App() {
   const arrowColor = '#C3FF53';
   const [date, setDate] = useState(new Date());
   const { steps, flights, distance } = useHealthData(date);
+  console.log('🚀 ~ App ~ date:', date);
+  console.log('🚀 ~ App ~ distance:', distance);
+  console.log('🚀 ~ App ~ flights:', flights);
+  console.log('🚀 ~ App ~ steps:', steps);
   const changeDate = (numDays: number) => {
     const currentDate = new Date(date); // Create a copy of the current date
     // Update the date by adding/subtracting the number of days
