@@ -5,7 +5,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import Svg, { Circle } from 'react-native-svg';
+import Svg, { Circle, CircleProps } from 'react-native-svg';
 
 type RingProgressProps = {
   radius?: number;
@@ -34,6 +34,16 @@ const RingProgress = ({
       strokeDasharray: [perimeter * percentageFill.value, perimeter],
     };
   });
+
+  const defaultCircleProps: CircleProps = {
+    cx: radius,
+    cy: radius,
+    r: innerRadius,
+    stroke: color,
+    strokeWidth: strokeWidth,
+    strokeLinecap: 'round',
+    fill: 'none',
+  };
   return (
     <View
       style={{
@@ -45,26 +55,13 @@ const RingProgress = ({
     >
       <Svg>
         <Circle
-          cx={radius}
-          cy={radius}
-          r={innerRadius}
-          stroke={color}
-          strokeWidth={strokeWidth * 0.9}
+          {...defaultCircleProps}
+          strokeWidth={strokeWidth * 0.85}
           strokeOpacity={0.4}
-          strokeLinecap='square'
-          //   strokeDasharray={[perimeter * (1 - progress), perimeter]}
-          //   opacity={0.4}
         />
         <AnimatedCircle
           animatedProps={animatedProps}
-          cx={radius}
-          cy={radius}
-          r={innerRadius}
-          stroke={color}
-          strokeWidth={strokeWidth}
-          strokeDasharray={[perimeter * progress, perimeter]}
-          strokeLinecap='round'
-          fill='none'
+          {...defaultCircleProps}
           transform={`rotate(${-90}, ${radius}, ${radius})`}
         />
       </Svg>
