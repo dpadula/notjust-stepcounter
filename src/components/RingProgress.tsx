@@ -27,7 +27,7 @@ const RingProgress = ({
 
   const percentageFill = useSharedValue(0.6);
   useEffect(() => {
-    percentageFill.value = withTiming(progress);
+    percentageFill.value = withTiming(progress, { duration: 800 });
   }, [progress]);
   const animatedProps = useAnimatedProps(() => {
     return {
