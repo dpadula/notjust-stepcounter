@@ -6,6 +6,7 @@ import Metric from './src/components/Metric';
 import RingProgress from './src/components/RingProgress';
 
 export default function App() {
+  const arrowColor = '#C3FF53';
   const [date, setDate] = useState(new Date());
   const changeDate = (numDays: number) => {
     const currentDate = new Date(date); // Create a copy of the current date
@@ -21,7 +22,7 @@ export default function App() {
           onPress={() => changeDate(-1)}
           name='left'
           size={20}
-          color='#C3FF53'
+          color={arrowColor}
         />
         <Text style={styles.date}>{date.toDateString()}</Text>
 
@@ -29,7 +30,7 @@ export default function App() {
           onPress={() => changeDate(1)}
           name='right'
           size={20}
-          color='#C3FF53'
+          color={arrowColor}
         />
       </View>
       <RingProgress radius={100} strokeWidth={40} progress={0.6} />
