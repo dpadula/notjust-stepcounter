@@ -1,3 +1,4 @@
+import AntDesign from '@expo/vector-icons/AntDesign';
 import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Animated, {
@@ -62,6 +63,17 @@ const RingProgress = ({
         />
         <AnimatedCircle animatedProps={animatedProps} {...defaultCircleProps} />
       </Svg>
+      <AntDesign
+        name='arrow-right'
+        size={strokeWidth * 0.8}
+        color='black'
+        style={{
+          position: 'absolute',
+          alignSelf: 'center',
+          top: strokeWidth * 0.07,
+          //   zIndex: 10,
+        }}
+      />
     </View>
   );
 };

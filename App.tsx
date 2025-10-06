@@ -6,7 +6,7 @@ import RingProgress from './src/components/RingProgress';
 export default function App() {
   return (
     <View style={styles.container}>
-      <RingProgress radius={100} strokeWidth={35} progress={0.6} />
+      <RingProgress radius={100} strokeWidth={40} progress={0.6} />
       <View style={styles.metricContainer}>
         <Metric label='Steps' value='12345' />
         <Metric label='Distance' value='0.75km' />
