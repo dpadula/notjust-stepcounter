@@ -14,17 +14,15 @@ set BUILD_PATH=android\app\build\outputs\apk\release
 REM ============================
 REM 1. PREBUILD (crea carpeta android si no existe)
 REM ============================
-echo 🔧 Ejecutando Expo Prebuild...
-npx expo prebuild
+@REM echo 🔧 Ejecutando Expo Prebuild...
+@REM set CI=1 && npx expo prebuild
 
 REM ============================
 REM 2. GENERAR KEYSTORE SI NO EXISTE
 REM ============================
 if not exist "%KEYSTORE_NAME%" (
   echo 🔑 Generando nuevo keystore...
-  keytool -genkeypair -v -keystore %KEYSTORE_NAME% -alias %KEY_ALIAS% -keyalg RSA -keysize 2048 -validity 10000 ^
-  -storepass %KEYSTORE_PASS% -keypass %KEY_PASS% ^
-  -dname "CN=MiApp, OU=IT, O=MiEmpresa, L=SantaFe, ST=SF, C=AR"
+  keytool -genkeypair -v -keystore %KEYSTORE_NAME% -alias %KEY_ALIAS% -keyalg RSA -keysize 2048 -validity 10000 -storepass %KEYSTORE_PASS% -keypass %KEY_PASS% -dname "CN=MiApp, OU=IT, O=MiEmpresa, L=SantaFe, ST=SF, C=AR"
 ) else (
   echo 🗝️  Keystore existente encontrado.
 )
