@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Metric from './src/components/Metric';
 import RingProgress from './src/components/RingProgress';
 import useHealthData from './src/hooks/useHealthData';
+const STEPS_GOAL = 10_000;
 
 export default function App() {
   const arrowColor = '#C3FF53';
@@ -39,7 +40,11 @@ export default function App() {
           color={arrowColor}
         />
       </View>
-      <RingProgress radius={100} strokeWidth={40} progress={0.6} />
+      <RingProgress
+        radius={100}
+        strokeWidth={40}
+        progress={steps / STEPS_GOAL}
+      />
       <View style={styles.metricContainer}>
         <Metric label='Steps' value={steps.toString()} />
         <Metric label='Distance' value={`${(distance / 1000).toFixed(2)} km`} />

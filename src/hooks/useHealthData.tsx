@@ -139,6 +139,9 @@ const useHealthData = (date: Date) => {
   };
 
   useEffect(() => {
+    console.log('🚀 ~ useHealthData ~ Platform.OS:', Platform.OS);
+    console.log('🚀 ~ useHealthData ~ date:', date);
+
     if (Platform.OS !== 'android') {
       return;
     }
